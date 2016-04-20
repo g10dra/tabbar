@@ -1,0 +1,94 @@
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+$(document).ready(function() {
+  $('#tabs li a:not(:first)').addClass('inactive');
+  $('#tabs .tab').hide();
+  $('#tabs .tab:first').show();
+  $('#tabs li a').click(function(){
+  var t = $(this).attr('href');
+  if($(this).hasClass('inactive')){ //this is the start of our condition
+  $('#tabs li a').addClass('inactive');
+  $(this).removeClass('inactive');
+  $('#tabs .tab').hide();
+  $( t ).fadeIn('slow');
+  }
+  });
+});
+</script>
+  <style>
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .content{
+      border:1px solid #ddd;
+      display: block;
+      padding: 10px;
+      border-radius: 0px 0px 5px 5px;
+    }
+    #tabs{
+      width: 100%;
+      margin: 10px auto;
+    }
+    #tabs ul{
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    a {cursor:pointer;}
+    #tabs li {
+      /*float:left;*/
+      display: inline-block;
+      list-style:none;
+      margin:0px;
+      outline:none;
+      padding: 0;
+    }
+    #tabs li a {
+      border:1px solid #ccc;
+      border-bottom: none;
+      font-size: small;
+      font-weight: bold;
+      color: #666666;
+      padding:5px 10px;
+      display:block;
+      background: #FFF;
+      border-top-left-radius:3px;
+      border-top-right-radius:3px;
+      text-decoration:none;
+      outline:none;
+    }
+    #tabs li a.inactive{
+      color:#666666;
+      background: #EEE;
+      outline:none;
+    }
+    #tabs li a:hover, #tabs li a.inactive:hover {
+      color: #666666;
+      outline:none;
+    }
+  </style>
+ 
+  <div id="tabs">
+    <ul>
+      <li><a href="#tabs-1">Tab 1</a></li>
+      <li><a href="#tabs-2">Tab 2</a></li>
+      <li><a href="#tabs-3">Tab 3</a></li>
+    </ul>
+    <div class="content">
+      <div class="tab" id="tabs-1">
+        Content for tab 1
+        <div>Content for tab 1</div>
+        <div>Content for tab 1</div>
+      </div>
+      <div class="tab" id="tabs-2">
+        Content for tab 2
+      </div>
+      <div class="tab" id="tabs-3">
+        Content for tab 3
+      </div>
+    </div>
+  </div>
+ 
